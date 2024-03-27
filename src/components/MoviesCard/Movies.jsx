@@ -100,40 +100,47 @@
 
 
 
-
-import React from "react";
+import React, { useState } from "react";
 import demoPic from "../../assets/demoPic.jpg";
-import { MdLocalMovies } from "react-icons/md";
+import { MdLocalMovies, MdBookmark, MdBookmarkBorder } from "react-icons/md";
 import card from "./movie.module.css";
 
 const MoviesCard = () => {
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const toggleBookmark = () => {
+    setIsBookmarked(!isBookmarked);
+  };
+
   return (
     <>
-    <div className={card.cardContainer}>
-      <div className={card.imageContainer}>
-        <img src={demoPic} alt="img" />
-      </div>
-      <div className={card.totalContent}>
-        <div className={card.content}>
-          <div className="year"> 
-          {/*  Ei type er class er kono kaj nei pore jodi target korte hy design er jonno tai add kore rehechi. eta change kore module.css lagabo */}
-            2019<span className={card.dot}>.</span>
-          </div>
-          <div className={card.dynamicIcon}>
-            <MdLocalMovies />
-          </div>
-          <div className="icon-type">  
-          {/* etao same */}
-            <span className={card.dot}>.</span>Movie
-            <span className={card.dot}>.</span>
-          </div>
-          <div className="type">PG</div> 
-           {/* etao same */}
+      <div className={card.cardContainer}>
+        <div className={card.imageContainer}>
+          {isBookmarked ? (
+            <MdBookmark className={card.bookmarkIcon} onClick={toggleBookmark} />
+          ) : (
+            <MdBookmarkBorder className={card.bookmarkIcon} onClick={toggleBookmark} />
+          )}
+          <img src={demoPic} alt="img" />
         </div>
-        <div className={card.movieName}>Pushpa</div>
+        <div className={card.totalContent}>
+          <div className={card.content}>
+            <div className="year">
+              2019<span className={card.dot}>.</span>
+            </div>
+            <div className={card.dynamicIcon}>
+              <MdLocalMovies />
+            </div>
+            <div className="icon-type">
+              <span className={card.dot}>.</span>Movie
+              <span className={card.dot}>.</span>
+            </div>
+            <div className="type">PG</div>
+          </div>
+          <div className={card.movieName}>Pushpa</div>
+        </div>
       </div>
-    </div>
-</>
+    </>
   );
 };
 

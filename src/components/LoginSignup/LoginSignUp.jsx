@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./LoginSignUp.css";
-import vdoIcon from "../../assets/video-icon.png";
+import { MdMovie } from "react-icons/md";
 
 const LoginSignUp = () => {
   const [isSignUp, setIsSignUp] = useState(true); // State to track whether to show signup or login form
@@ -42,7 +42,7 @@ const LoginSignUp = () => {
   return (
     <div>
       <div className="vdo-icon">
-        <img src={vdoIcon} alt="video-icon" />
+        <MdMovie />
       </div>
 
       <div className="container">

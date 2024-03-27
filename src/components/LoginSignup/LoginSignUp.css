@@ -3,12 +3,10 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 90px;
+  color: #FC4747;
+  font-size: 50px;
 }
 
-.vdo-icon img {
-  max-width: 45px;
-  max-height: 45px;
-}
 
 .container {
   width: 420px;
